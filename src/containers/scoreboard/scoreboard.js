@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import Button from "react-bootstrap/Button";
+import { Form, FormControl, Button } from "react-bootstrap";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 
@@ -13,6 +13,10 @@ import {
 } from "../../reducers/reducers";
 
 class Scoreboard extends Component {
+    state = {
+        val: "2021-05-11",
+    };
+
     constructor(props) {
         super(props);
         this.queryFunction = this.queryFunction.bind(this);
@@ -25,16 +29,30 @@ class Scoreboard extends Component {
     queryFunction() {
         const { queryScores } = this.props;
         console.log("Send to dispatcher");
-        queryScores();
+        queryScores(this.state.val);
     }
 
     render() {
-        const { gamesDate } = this.props;
+        // const { gamesDate } = this.props;
 
         return (
-            <Button variant="success" onClick={this.queryFunction}>
-                {gamesDate}
-            </Button>
+            <div>
+                <Form inline>
+                    <FormControl
+                        type="text"
+                        placeholder="Search Games"
+                        className="mr-sm-2"
+                        value={this.state.val}
+                        onChange={(e) => this.setState({ val: e.target.value })}
+                    />
+                    <Button
+                        variant="outline-success"
+                        onClick={this.queryFunction}
+                    >
+                        Search
+                    </Button>
+                </Form>
+            </div>
         );
     }
 }
@@ -48,8 +66,8 @@ const mapStateToProps = (state) => ({
 });
 
 const mapDispatchToProps = (dispatch) => ({
-    queryScores: () => {
-        dispatch(getScores());
+    queryScores: (gameDate) => {
+        dispatch(getScores(gameDate));
     },
 });
 
