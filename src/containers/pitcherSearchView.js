@@ -3,6 +3,7 @@ import { Form, FormControl, Button } from "react-bootstrap";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import { getPlayers } from "../actions/getPlayers";
+import PlayerSearchList from "../components/playerSearchList";
 import {
     getPlayerSearchLoading,
     getPlayerSearchCount,
@@ -28,6 +29,8 @@ class PitcherSearchView extends Component {
     }
 
     render() {
+        const { players } = this.props;
+
         return (
             <div>
                 <div style={{ display: "flex", justifyContent: "center" }}>
@@ -59,6 +62,7 @@ class PitcherSearchView extends Component {
                     </Form>
                 </div>
                 <hr></hr>
+                <PlayerSearchList players={players} />
             </div>
         );
     }
@@ -83,7 +87,7 @@ PitcherSearchView.propTypes = {
     loading: PropTypes.bool,
     gamesDate: PropTypes.string,
     games: PropTypes.array,
-    queryScores: PropTypes.func.isRequired,
+    queryPlayers: PropTypes.func.isRequired,
 };
 
 export default connect(mapStateToProps, mapDispatchToProps)(PitcherSearchView);
