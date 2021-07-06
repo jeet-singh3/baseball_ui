@@ -3,6 +3,7 @@ import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import IndividualPitcherSummary from "../individualPitcherSummary/individualPitcherSummary";
 import { getPitchersInGame } from "../../actions/getPitchersInGame";
 import {
     getPitchersByGameIsError,
@@ -35,8 +36,9 @@ class PitcherGameSummary extends Component {
                     <thead>
                         <tr>
                             <th>Pitcher Name</th>
-                            <th>Average Fastball Velocity</th>
+                            <th>Avg FB Velo</th>
                             <th>Pitch Count</th>
+                            <th>Pitch Stats</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -54,11 +56,9 @@ class PitcherGameSummary extends Component {
                                         </Link>
                                     </td>
                                     <td>
-                                        {
-                                            value.summary
-                                                .individual_game_summary
-                                                .averageFastballVelocity
-                                        }
+                                        {value.summary.individual_game_summary.averageFastballVelocity.toFixed(
+                                            2
+                                        )}
                                     </td>
                                     <td>
                                         {
@@ -66,6 +66,15 @@ class PitcherGameSummary extends Component {
                                                 .individual_game_summary
                                                 .pitchCount
                                         }
+                                    </td>
+                                    <td>
+                                        <IndividualPitcherSummary
+                                            summary={
+                                                value.summary
+                                                    .individual_game_summary
+                                                    .summary
+                                            }
+                                        />
                                     </td>
                                 </tr>
                             );

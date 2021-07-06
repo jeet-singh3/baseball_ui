@@ -11,6 +11,7 @@ export default function PitchersInGame() {
 
     return (
         <div>
+            <hr></hr>
             <h1>
                 {awayTeam} vs {homeTeam}
             </h1>
