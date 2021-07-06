@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Form, FormControl, Button } from "react-bootstrap";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
-
+import GamesTable from "../../components/gamesTable/gamesTable";
 import { getScores } from "../../actions/getScores";
 import {
     getScoresLoading,
@@ -33,25 +33,33 @@ class Scoreboard extends Component {
     }
 
     render() {
-        // const { gamesDate } = this.props;
+        const { games } = this.props;
 
         return (
             <div>
-                <Form inline>
-                    <FormControl
-                        type="text"
-                        placeholder="Search Games"
-                        className="mr-sm-2"
-                        value={this.state.val}
-                        onChange={(e) => this.setState({ val: e.target.value })}
-                    />
-                    <Button
-                        variant="outline-success"
-                        onClick={this.queryFunction}
-                    >
-                        Search
-                    </Button>
-                </Form>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                    <Form inline>
+                        <FormControl
+                            type="text"
+                            placeholder="Search Games"
+                            className="mr-sm-2"
+                            value={this.state.val}
+                            onChange={(e) =>
+                                this.setState({ val: e.target.value })
+                            }
+                        />
+                        <Button
+                            variant="outline-success"
+                            onClick={this.queryFunction}
+                        >
+                            Search
+                        </Button>
+                    </Form>
+                </div>
+                <hr></hr>
+                <div>
+                    <GamesTable games={games} />
+                </div>
             </div>
         );
     }
