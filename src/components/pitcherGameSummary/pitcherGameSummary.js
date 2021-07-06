@@ -31,7 +31,7 @@ class PitcherGameSummary extends Component {
         const { pitchers } = this.props;
         return (
             <div>
-                <Table striped bordered hover variant="dark">
+                <Table responsive="sm" striped bordered hover variant="dark">
                     <thead>
                         <tr>
                             <th>Pitcher Name</th>
