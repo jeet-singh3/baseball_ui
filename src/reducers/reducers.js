@@ -1,10 +1,12 @@
 import { combineReducers } from "redux";
 import getGameScores, * as fromScores from "./scores";
 import getPitchersByGame, * as fromPitchersByGame from "./pitchersByGame";
+import fetchPlayers, * as fromFetchPlayers from "./playersSearch";
 
 export default combineReducers({
     getGameScores,
     getPitchersByGame,
+    fetchPlayers,
 });
 
 export const getScoresLoading = (state) =>
@@ -23,3 +25,12 @@ export const getPitchersByGameIsError = (state) =>
     fromPitchersByGame.getPitchersByGameError(state.getPitchersByGame);
 export const getPitchersByGameLister = (state) =>
     fromPitchersByGame.getPitchersByGameList(state.getPitchersByGame);
+
+export const getPlayerSearchLoading = (state) =>
+    fromFetchPlayers.arePlayersLoading(state.fetchPlayers);
+export const getPlayerSearchCount = (state) =>
+    fromFetchPlayers.getCount(state.fetchPlayers);
+export const getPlayerSearchIsError = (state) =>
+    fromFetchPlayers.getPlayersSearchError(state.fetchPlayers);
+export const getPlayersSearchList = (state) =>
+    fromFetchPlayers.getPlayersList(state.fetchPlayers);

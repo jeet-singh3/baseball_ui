@@ -1,5 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
+import PitcherSearchView from "./pitcherSearchView";
 
 export default function PitcherSummary() {
     const search = useLocation().search;
@@ -8,6 +9,6 @@ export default function PitcherSummary() {
     if (pitcherId) {
         return <div>Hello World</div>;
     } else {
-        return <div>Oh No!</div>;
+        return <PitcherSearchView />;
     }
 }
