@@ -3,7 +3,7 @@ import React from "react";
 import Scoreboard from "./containers/scoreboard";
 import PitchersInGame from "./containers/pitchersInGame";
 import PitcherSummary from "./containers/pitcherSummary";
-import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
+import { Navbar, Nav } from "react-bootstrap";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
