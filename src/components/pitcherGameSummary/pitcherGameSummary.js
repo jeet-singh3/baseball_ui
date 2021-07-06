@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
+import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 import { getPitchersInGame } from "../../actions/getPitchersInGame";
 import {
     getPitchersByGameIsError,
@@ -28,11 +30,49 @@ class PitcherGameSummary extends Component {
     render() {
         const { pitchers } = this.props;
         return (
-            <ul>
-                {pitchers.map((value, index) => {
-                    return <li key={index}> {value.name} </li>;
-                })}
-            </ul>
+            <div>
+                <Table striped bordered hover variant="dark">
+                    <thead>
+                        <tr>
+                            <th>Pitcher Name</th>
+                            <th>Average Fastball Velocity</th>
+                            <th>Pitch Count</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {pitchers.map((value, index) => {
+                            return (
+                                <tr key={index}>
+                                    <td>
+                                        <Link
+                                            to={{
+                                                pathname: "/pitchers",
+                                                search: `?pitcherId=${value.pitcherId}`,
+                                            }}
+                                        >
+                                            {value.summary.name}
+                                        </Link>
+                                    </td>
+                                    <td>
+                                        {
+                                            value.summary
+                                                .individual_game_summary
+                                                .averageFastballVelocity
+                                        }
+                                    </td>
+                                    <td>
+                                        {
+                                            value.summary
+                                                .individual_game_summary
+                                                .pitchCount
+                                        }
+                                    </td>
+                                </tr>
+                            );
+                        })}
+                    </tbody>
+                </Table>
+            </div>
         );
     }
 }

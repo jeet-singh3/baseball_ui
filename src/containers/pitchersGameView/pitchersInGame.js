@@ -5,10 +5,17 @@ import PitcherGameSummary from "../../components/pitcherGameSummary/pitcherGameS
 export default function PitchersInGame() {
     const search = useLocation().search;
     const gameId = new URLSearchParams(search).get("gameId");
+    const awayTeam = new URLSearchParams(search).get("awayTeam");
+    const homeTeam = new URLSearchParams(search).get("homeTeam");
+    const gameDate = new URLSearchParams(search).get("gameDate");
 
     return (
         <div>
-            <h1>Items page</h1>
+            <h1>
+                {awayTeam} vs {homeTeam}
+            </h1>
+            <h2>{gameDate}</h2>
+            <hr></hr>
             <PitcherGameSummary gameId={gameId} />
         </div>
     );

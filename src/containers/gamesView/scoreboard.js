@@ -33,7 +33,7 @@ class Scoreboard extends Component {
     }
 
     render() {
-        const { games } = this.props;
+        const { games, gamesDate } = this.props;
 
         return (
             <div>
@@ -59,7 +59,7 @@ class Scoreboard extends Component {
                 </div>
                 <hr></hr>
                 <div>
-                    <GamesTable games={games} />
+                    <GamesTable games={games} gamesDate={gamesDate} />
                 </div>
                 <hr></hr>
             </div>

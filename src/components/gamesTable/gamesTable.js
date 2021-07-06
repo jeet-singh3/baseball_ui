@@ -5,7 +5,7 @@ import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 const GamesTable = (props) => {
-    const { games } = props;
+    const { games, gamesDate } = props;
 
     return (
         <Table striped bordered hover variant="dark">
@@ -24,7 +24,7 @@ const GamesTable = (props) => {
                                 <Link
                                     to={{
                                         pathname: "/game",
-                                        search: `?gameId=${value.gameId}`,
+                                        search: `?gameId=${value.gameId}&awayTeam=${value.awayTeam}&homeTeam=${value.homeTeam}&gameDate=${gamesDate}`,
                                     }}
                                 >
                                     {value.gameId}
