@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import { Form, FormControl, Button } from "react-bootstrap";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
-import GamesTable from "../../components/gamesTable/gamesTable";
-import { getScores } from "../../actions/getScores";
+import GamesTable from "../components/gamesTable";
+import { getScores } from "../actions/getScores";
 import {
     getScoresLoading,
     getGamesCount,
     getScoreError,
     getGamesDate,
     getGames,
-} from "../../reducers/reducers";
+} from "../reducers/reducers";
 
 class Scoreboard extends Component {
     state = {

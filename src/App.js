@@ -1,7 +1,7 @@
 import React from "react";
 // import logo from './logo.svg';
-import Scoreboard from "./containers/gamesView/scoreboard";
-import PitchersInGame from "./containers/pitchersGameView/pitchersInGame";
+import Scoreboard from "./containers/scoreboard";
+import PitchersInGame from "./containers/pitchersInGame";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";

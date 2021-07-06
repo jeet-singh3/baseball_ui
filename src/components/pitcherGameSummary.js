@@ -3,13 +3,13 @@ import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
-import IndividualPitcherSummary from "../individualPitcherSummary/individualPitcherSummary";
-import { getPitchersInGame } from "../../actions/getPitchersInGame";
+import IndividualPitcherSummary from "./individualPitcherSummary";
+import { getPitchersInGame } from "../actions/getPitchersInGame";
 import {
     getPitchersByGameIsError,
     getPitchersByGameLister,
     getPitchersByGameLoading,
-} from "../../reducers/reducers";
+} from "../reducers/reducers";
 
 class PitcherGameSummary extends Component {
     constructor(props) {

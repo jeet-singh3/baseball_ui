@@ -1,6 +1,6 @@
 import React from "react";
 import { useLocation } from "react-router-dom";
-import PitcherGameSummary from "../../components/pitcherGameSummary/pitcherGameSummary";
+import PitcherGameSummary from "../components/pitcherGameSummary";
 
 export default function PitchersInGame() {
     const search = useLocation().search;

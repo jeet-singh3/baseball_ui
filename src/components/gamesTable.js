@@ -1,5 +1,4 @@
 import React from "react";
-import "./gamesTable.css";
 import PropTypes from "prop-types";
 import { Table } from "react-bootstrap";
 import { Link } from "react-router-dom";
