@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
+import PitcherYearToDate from "../components/pitcherYearToDate";
+import PitcherGamesYearToDate from "../components/pitcherGamesYearToDate";
 import { getPitchesForPitcher } from "../actions/getPitchSummaryForPitcher";
 import { getGamesForPitcher } from "../actions/getPitcherSummaryForGames";
 import {
@@ -19,14 +21,22 @@ class PitcherView extends Component {
         console.log("Scoreboard component is active");
         queryPitches(pitcherId);
         queryGames(pitcherId);
+        window.scrollTo(0, 0);
     }
 
     render() {
-        const { pitcherId, name } = this.props;
+        const { pitcherId, name, pitches, games } = this.props;
 
         return (
             <div>
-                {name}: {pitcherId}
+                <h1>
+                    {name}: {pitcherId}
+                </h1>
+                Year To Date Stats
+                <PitcherYearToDate pitches={pitches} />
+                <hr></hr>
+                <h1>Individual Game Stats</h1>
+                <PitcherGamesYearToDate games={games} />
             </div>
         );
     }
@@ -57,6 +67,7 @@ PitcherView.propTypes = {
     error: PropTypes.bool,
     loading: PropTypes.bool,
     pitches: PropTypes.array,
+    games: PropTypes.array,
     queryPitches: PropTypes.func.isRequired,
     queryGames: PropTypes.func.isRequired,
 };

@@ -25,6 +25,7 @@ class Scoreboard extends Component {
         const { queryScores } = this.props;
         console.log("Scoreboard component is active");
         queryScores();
+        window.scrollTo(0, 0);
     }
     queryFunction() {
         const { queryScores } = this.props;
