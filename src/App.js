@@ -2,6 +2,7 @@ import React from "react";
 // import logo from './logo.svg';
 import Scoreboard from "./containers/scoreboard";
 import PitchersInGame from "./containers/pitchersInGame";
+import PitcherSummary from "./containers/pitcherSummary";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -13,7 +14,6 @@ export default function App() {
                 <Navbar.Brand href="#home">Exploring Pitch Data</Navbar.Brand>
                 <Nav className="mr-auto">
                     <Nav.Link href="/">Games</Nav.Link>
-                    <Nav.Link href="/">Game</Nav.Link>
                     <Nav.Link href="/pitcher">Pitcher</Nav.Link>
                     <Nav.Link href="/about">About</Nav.Link>
                 </Nav>
@@ -32,10 +32,10 @@ export default function App() {
                     <About />
                 </Route>
                 <Route path="/pitcher">
-                    <Users />
+                    <PitchingYear />
                 </Route>
                 <Route path="/game">
-                    <Users />
+                    <PitchingInGame />
                 </Route>
                 <Route path="/">
                     <Games />
@@ -59,11 +59,21 @@ function About() {
     return <h2>About</h2>;
 }
 
-function Users() {
+function PitchingInGame() {
     return (
         <div className="App">
             <header className="App-header">
                 <PitchersInGame />
+            </header>
+        </div>
+    );
+}
+
+function PitchingYear() {
+    return (
+        <div className="App">
+            <header className="App-header">
+                <PitcherSummary />
             </header>
         </div>
     );

@@ -23,7 +23,7 @@ class Scoreboard extends Component {
     }
     componentDidMount() {
         const { queryScores } = this.props;
-        console.log("Component is active");
+        console.log("Scoreboard component is active");
         queryScores();
     }
     queryFunction() {

@@ -48,7 +48,7 @@ class PitcherGameSummary extends Component {
                                     <td>
                                         <Link
                                             to={{
-                                                pathname: "/pitchers",
+                                                pathname: "/pitcher",
                                                 search: `?pitcherId=${value.pitcherId}`,
                                             }}
                                         >
