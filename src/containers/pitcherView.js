@@ -25,17 +25,15 @@ class PitcherView extends Component {
     }
 
     render() {
-        const { pitcherId, name, pitches, games } = this.props;
+        const { name, pitches, games } = this.props;
 
         return (
             <div>
-                <h1>
-                    {name}: {pitcherId}
-                </h1>
-                Year To Date Stats
+                <h1>{name}</h1>
+                <h3>Year To Date Stats</h3>
                 <PitcherYearToDate pitches={pitches} />
                 <hr></hr>
-                <h1>Individual Game Stats</h1>
+                <h3>Individual Game Stats</h3>
                 <PitcherGamesYearToDate games={games} />
             </div>
         );
