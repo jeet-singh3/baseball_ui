@@ -26,10 +26,13 @@ class PitcherGameSummary extends Component {
     }
 
     render() {
+        const { pitchers } = this.props;
         return (
-            <div>
-                <div></div>
-            </div>
+            <ul>
+                {pitchers.map((value, index) => {
+                    return <li key={index}> {value.name} </li>;
+                })}
+            </ul>
         );
     }
 }
