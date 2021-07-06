@@ -2,15 +2,15 @@ import React, { Component } from "react";
 import { Form, FormControl, Button } from "react-bootstrap";
 import { PropTypes } from "prop-types";
 import { connect } from "react-redux";
-import GamesTable from "../../components/gamesTable/gamesTable";
-import { getScores } from "../../actions/getScores";
+import GamesTable from "../components/gamesTable";
+import { getScores } from "../actions/getScores";
 import {
     getScoresLoading,
     getGamesCount,
     getScoreError,
     getGamesDate,
     getGames,
-} from "../../reducers/reducers";
+} from "../reducers/reducers";
 
 class Scoreboard extends Component {
     state = {
@@ -23,7 +23,7 @@ class Scoreboard extends Component {
     }
     componentDidMount() {
         const { queryScores } = this.props;
-        console.log("Component is active");
+        console.log("Scoreboard component is active");
         queryScores();
     }
     queryFunction() {
@@ -33,10 +33,11 @@ class Scoreboard extends Component {
     }
 
     render() {
-        const { games } = this.props;
+        const { games, gamesDate } = this.props;
 
         return (
             <div>
+                <hr></hr>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                     <Form inline>
                         <FormControl
@@ -58,8 +59,9 @@ class Scoreboard extends Component {
                 </div>
                 <hr></hr>
                 <div>
-                    <GamesTable games={games} />
+                    <GamesTable games={games} gamesDate={gamesDate} />
                 </div>
+                <hr></hr>
             </div>
         );
     }
