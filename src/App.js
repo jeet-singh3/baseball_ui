@@ -3,6 +3,7 @@ import React from "react";
 import Scoreboard from "./containers/scoreboard";
 import PitchersInGame from "./containers/pitchersInGame";
 import PitcherSummary from "./containers/pitcherSummary";
+import About from "./containers/about";
 import { Navbar, Nav } from "react-bootstrap";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -21,7 +22,7 @@ export default function App() {
 
             <Switch>
                 <Route path="/about">
-                    <About />
+                    <AboutMe />
                 </Route>
                 <Route path="/pitcher">
                     <PitchingYear />
@@ -47,8 +48,14 @@ function Games() {
     );
 }
 
-function About() {
-    return <h2>About</h2>;
+function AboutMe() {
+    return (
+        <div className="App">
+            <header className="App-header">
+                <About />
+            </header>
+        </div>
+    );
 }
 
 function PitchingInGame() {
