@@ -37,6 +37,7 @@ class Scoreboard extends Component {
 
         return (
             <div>
+                <hr></hr>
                 <div style={{ display: "flex", justifyContent: "center" }}>
                     <Form inline>
                         <FormControl
@@ -60,6 +61,7 @@ class Scoreboard extends Component {
                 <div>
                     <GamesTable games={games} />
                 </div>
+                <hr></hr>
             </div>
         );
     }

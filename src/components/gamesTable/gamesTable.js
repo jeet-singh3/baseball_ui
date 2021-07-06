@@ -2,6 +2,7 @@ import React from "react";
 import "./gamesTable.css";
 import PropTypes from "prop-types";
 import { Table } from "react-bootstrap";
+import { Link } from "react-router-dom";
 
 const GamesTable = (props) => {
     const { games } = props;
@@ -18,8 +19,17 @@ const GamesTable = (props) => {
             <tbody>
                 {games.map((value, index) => {
                     return (
-                        <tr>
-                            <td>{value.gameId}</td>
+                        <tr key={index}>
+                            <td>
+                                <Link
+                                    to={{
+                                        pathname: "/game",
+                                        search: `?gameId=${value.gameId}`,
+                                    }}
+                                >
+                                    {value.gameId}
+                                </Link>
+                            </td>
                             <td>{value.awayTeam}</td>
                             <td>{value.homeTeam}</td>
                         </tr>

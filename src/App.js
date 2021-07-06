@@ -1,6 +1,7 @@
 import React from "react";
 // import logo from './logo.svg';
-import Scoreboard from "./containers/gameView/scoreboard";
+import Scoreboard from "./containers/gamesView/scoreboard";
+import PitchersInGame from "./containers/pitchersGameView/pitchersInGame";
 import { Navbar, Nav, Form, FormControl, Button } from "react-bootstrap";
 import "./App.css";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
@@ -33,15 +34,18 @@ export default function App() {
                 <Route path="/pitcher">
                     <Users />
                 </Route>
+                <Route path="/game">
+                    <Users />
+                </Route>
                 <Route path="/">
-                    <Game />
+                    <Games />
                 </Route>
             </Switch>
         </Router>
     );
 }
 
-function Game() {
+function Games() {
     return (
         <div className="App">
             <header className="App-header">
@@ -56,5 +60,11 @@ function About() {
 }
 
 function Users() {
-    return <h2>Users</h2>;
+    return (
+        <div className="App">
+            <header className="App-header">
+                <PitchersInGame />
+            </header>
+        </div>
+    );
 }
